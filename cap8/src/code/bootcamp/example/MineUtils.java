@@ -34,4 +34,12 @@ public class MineUtils {
         }
         return copy;
     }
+
+    public static int[][] copyInt(int[][] matrix){
+        var copy = Arrays.copyOf(matrix, matrix.length);
+        for (int i = 0; i < matrix.length; i++) {
+            copy[i] = Arrays.copyOf(matrix[i], matrix[i].length);
+        }
+        return copy;
+    }
 }

@@ -4,28 +4,31 @@ import java.util.ArrayList;
 
 public class Zero {
 
-    ArrayList<Integer> x = new int[];
-    ArrayList<Integer> y = new int[];
 
-    public char[][] searchZero(char[][] matrix){
+    public static int[][] searchZero(int[][] matrix) {
 
-        var newMatrix = MineUtils.copy(matrix);
-        for (var row = 0; row < newMatrix.length; ++row) {
-            for (var column = 0; column < newMatrix[row].length; ++column) {
-                if(newMatrix[row][column] == 0){
-                    x.add(row);
-                    y.add(column);
+        var newMatrix = MineUtils.copyInt(matrix);
+        for (var row = 0; row < matrix.length; ++row) {
+            for (var column = 0; column < matrix[row].length; ++column) {
+                if (matrix[row][column] == 0) {
+                    changeRow(newMatrix, row);
+                    changeColumn(newMatrix, column);
                 }
             }
         }
         return newMatrix;
     }
 
-    public char[][] changeDigit(char[][] newMatrix){
-        var posX= x.toArray();
-        var posY = y.toArray();
-        for (int i = 0; i < posX.length; ++i) {
-            newMatrix[posX[i]][posY[i]] = 0;
+    private static void changeRow(int[][] newMatrix, int row) {
+        for (int x = 0; x < newMatrix.length; ++x) {
+            newMatrix[x][row] = 0;
         }
     }
+    private static void changeColumn(int[][] newMatrix, int column) {
+        for (int y = 0; y < newMatrix[0].length; y++) {
+            newMatrix[column][y] = 0;
+        }
+    }
+
+
 }

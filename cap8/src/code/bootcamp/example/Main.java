@@ -1,6 +1,7 @@
 package code.bootcamp.example;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -56,5 +57,7 @@ public class Main {
         };
         var newMatrix = Zero.searchZero(matrix);
         System.out.println(printInt(newMatrix));
+
+        System.out.println("The amount to pay is: " + parking.amountToPay());
     }
 }
